@@ -1,9 +1,25 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>register</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
-
+  <form action="" class="container-fluid">
+    <div class="text-center">
+      <ion-label text-center style="font-family: 'Roboto', sans-serif; color: white;">¡Bienvenido!, por favor regístrate</ion-label><br>
+      <ion-label style="font-family: 'Roboto', sans-serif; color: white;"><small>¿Ya tienes una cuenta?<a routerLink="/login">Ingresa aquí</a></small></ion-label>
+    </div>
+    <div class="inputsRegistro">
+      <ion-input type="text" placeholder="Nombre completo"></ion-input>
+      <ion-input type="text" placeholder="Usuario"></ion-input>
+      <ion-input type="text" placeholder="Correo electrónico"></ion-input>
+      <ion-input type="text" placeholder="Contraseña"></ion-input>
+      <ion-input type="text" placeholder="Confirma tu contraseña"></ion-input>
+    </div>
+    <div class="d-flex justify-content-center" style="background-color: #00A758; color: white;">
+      <ion-buttons>
+        <ion-button>
+          Siguiente
+        </ion-button>
+      </ion-buttons>
+    </div>
+  </form>
+  <div class="container-fluid text-center" style="color: white !important;">
+    <ion-label><small>By clicking Create An Account, yo agree <br>to our <a href="">Term of Services</a></small></ion-label>
+  </div>
 </ion-content>

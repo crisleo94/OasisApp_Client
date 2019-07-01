@@ -1,0 +1,24 @@
+ion-content {
+    --background: url('../../../assets/img/Oasis_Splash_Register.png') no-repeat center center / cover !important;
+    form {
+        margin-top: 50%;
+    }
+    ion-label a {
+        color: white !important;
+        text-decoration: none !important;
+        font-family: 'Roboto', sans-serif;
+    }
+}
+
+ion-input {
+    --background: #fff;
+    --color: #000;
+    --padding-bottom: 14px;
+    --padding-end: 14px;
+    --padding-start: 14px;
+    --padding-top: 14px;
+    --placeholder-color: #000;
+    --placeholder-font-style: initial
+    --placeholder-font-weight initial
+    --placeholder-opacity 0.5
+}
