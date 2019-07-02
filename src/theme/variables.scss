@@ -75,3 +75,21 @@
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
 }
+
+.ion-color-verdeRegistro {
+  --ion-color-base: var(--ion-color-success) !important;
+  --ion-color-base-rgb: var(--ion-color-success-rgb) !important;
+  --ion-color-contrast: var(--ion-color-success-contrast) !important;
+  --ion-color-contrast-rgb: var(--ion-color-success-contrast-rgb) !important;
+  --ion-color-shade: var(--ion-color-success-shade) !important;
+  --ion-color-tint: var(--ion-color-success-tint) !important;
+}
+
+.ion-color-blancoLogin {
+  --ion-color-base: var(--ion-color-light) !important;
+  --ion-color-base-rgb: var(--ion-color-light-rgb) !important;
+  --ion-color-contrast: var(--ion-color-light-contrast) !important;
+  --ion-color-contrast-rgb: var(--ion-color-light-contrast-rgb) !important;
+  --ion-color-shade: var(--ion-color-light-shade) !important;
+  --ion-color-tint: var(--ion-color-light-tint) !important;
+}
