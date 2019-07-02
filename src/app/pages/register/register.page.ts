@@ -12,4 +12,9 @@ export class RegisterPage implements OnInit {
   ngOnInit() {
   }
 
+  register() {
+    console.log('register clicked');
+  }
+
+
 }
