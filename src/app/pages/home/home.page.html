@@ -6,14 +6,14 @@
         <ion-label style="margin-left: 10px; color: black;" >Ingresa con tu cuenta de google</ion-label>
       </ion-button>
       <br><br>
-      <ion-button class="btnRegistro" color="verdeRegistro">
+      <ion-button class="btnRegistro" color="verdeRegistro" routerLink="/register">
         Registrate
       </ion-button>
       <br><br><br>
       <div>
-        <a href="" style="text-decoration: none;">
-          <ion-label style="color: azure;"> ¿Ya tienes una cuenta? Ingresa aquí </ion-label>
-        </a>
+        <!-- <a href="" style="text-decoration: none;"> -->
+        <ion-label style="color: azure;"> ¿Ya tienes una cuenta? <a style="text-decoration: none !important; color: azure; font-weight: bold;" routerLink="/login">Ingresa aquí</a></ion-label>
+        <!-- </a> -->
       </div>
     </form>
     
