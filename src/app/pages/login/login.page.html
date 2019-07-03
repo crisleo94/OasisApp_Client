@@ -1,8 +1,8 @@
 <ion-content>
-  <form text-center style="margin-top: 80%">
+  <form text-center style="padding-top: 60%">
       <h2 style="color: azure;">¡Bienvenido!, ingresa a tu cuenta</h2>
     <ion-button class="btnGoogle" color="blancoLogin">
-      <ion-icon name="logo-google"></ion-icon>
+      <img src="assets\img\googleIcon.png" width="30">
       <ion-label style="margin-left: 10px; color: black;">Ingresa con tu cuenta de google</ion-label>
     </ion-button>
     <br><br>
@@ -14,13 +14,15 @@
       Ingresar
     </ion-button>
     <br><br>
-    <ion-label style="color: azure; margin-right: 30px;">
-      <ion-checkbox color="secondary" style="margin-left: 3px;"></ion-checkbox>
+    <div class="d-flex justify-content-center align-items-center">
+      <ion-checkbox color="secondary" style="margin-right: 10px;"></ion-checkbox>
+      <ion-label style="color: azure; margin-right: 30px;">
       Recuérdame
-    </ion-label>
+      </ion-label>
     <a style="text-decoration: none;">
       <ion-label style="color: azure;"> Recuperar contraseña </ion-label>
     </a>
+    </div>
     <br><br>
     <div>
       <a style="text-decoration: none;" routerLink="/register">
