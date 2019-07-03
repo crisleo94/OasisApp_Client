@@ -1,0 +1,31 @@
+<ion-content text-center>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12">
+        <form class="container-fluid" style="margin-top: 5%">
+          <img src="assets/img/VectorSmartObject.png" width="120">
+          <h2 style="font-weight: bold;">Registra tu dirección</h2>
+          <div class="inputsRegistro">
+            <ion-input type="text" name="dir1" placeholder="Dirección 1"></ion-input>
+            <ion-input type="text" name="dir2" placeholder="Dirección 2"></ion-input>
+            <ion-input type="text" name="CP" placeholder="C.P."></ion-input>
+            <ion-input type="text" name="poblacion" placeholder="Población"></ion-input>
+            <ion-input type="text" name="calles" placeholder="Entre calle y calle"></ion-input>
+            <ion-input type="text" name="referencia" placeholder="Referencia(Color casa, frente a negocio, etc)">
+            </ion-input>
+          </div>
+          <h3 style=" font-weight: bold;">¿Son correctos los datos?</h3>
+          <h4>Comprueba en el mapa que el marcador este correctamente ubicado</h4>
+          <div (click)="register2()" class="d-flex justify-content-center" style="background-color: #00A758; color: white;
+                                                      border: black solid 0.5px; height: 44px;">
+            <ion-buttons>
+              <ion-button style=" text-transform: capitalize !important; font-family: 'Roboto', sans-serif;">
+                Confirmar
+              </ion-button>
+            </ion-buttons>
+          </div>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
