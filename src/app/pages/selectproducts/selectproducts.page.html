@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="MiMenu" name="menu"></ion-menu-button>
+    </ion-buttons>
+    <ion-title text-center>
+      <img src="../../../assets/img/Oasis_Logo.png" width="64px" height="64px" alt="logo">
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button menu="menuId">...</ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <app-menu></app-menu>
+  <div class="imagen">
+    <img src="../../../assets/img/Garrafon.png" alt="garrafon" width="100%" height="auto">
+  </div>
+  <div class="container-fluid">
+    <ion-grid>
+      <ion-row style="color: azure">
+        <ion-col size="10"><h3><b>Garrafón 20L</b></h3></ion-col>
+        <ion-col size="2"><h6><b>$25</b></h6></ion-col>
+      </ion-row>
+      <ion-row style="color: azure">
+        <ion-col size="11">
+          <p>Agua osmopurificada con los más altos estándares de calidad, embotellada en presentación
+            de 20 litros
+          </p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <div class="botones d-flex justify-content-center align-items-center">
+      <div class="menos">
+        <ion-button (click)="menos()">
+          <ion-icon name="remove"></ion-icon>
+        </ion-button>
+      </div>
+      <div class="cantidad d-flex justify-content-center align-items-center" style="width: 50px; height: 50px; background-color: azure; margin-left: 5px; margin-right: 5px;
+                                  font-size: 18px;">
+        {{numero}}
+      </div>
+      <div class="mas">
+        <ion-button (click)="mas()">
+          <ion-icon name="add"></ion-icon>
+        </ion-button>
+      </div>
+    </div>
+    <ion-buttons class="text-center" style="display: block; margin-top: 10%;">
+      <ion-button class="addpedido" style="width: 95% !important;">
+        AGREGAR A MI PEDIDO
+      </ion-button>
+      <ion-button class="restpedido" style="margin-top: 5%; width: 95% !important">
+        <ion-icon name="cart" slot="start"></ion-icon>
+        VER MI ORDEN
+      </ion-button>
+    </ion-buttons>
+  </div>
+</ion-content>
