@@ -1,0 +1,65 @@
+ion-content {
+    --background: url('src/assets/img/fondo.png') no-repeat center center / cover !important;
+}
+
+.mas ion-button {
+    --background: #fff;
+    --background-activated: #afb2b688;
+    --background-focused: #afb2b688;
+    --background-hover: #afb2b688;
+    --border-color: #fff;
+    --border-radius: 50%;
+    // --border-style: solid;
+    // --border-width: 8px;
+    // --box-shadow: 10px 10px;
+    --color: #00A758;
+    --color-activated: #ffffff;
+    --color-focused: #ffffff;
+    --color-hover: #ffffff;
+    --opacity: 1;
+    --padding-bottom: 20px;
+    --padding-end: 10px;
+    --padding-start: 10px;
+    --padding-top: 20px;
+    --ripple-color: #1e1e1e;
+    --transition: background-color 15ms linear;
+}
+
+.menos ion-button {
+    --background: #fff;
+    --background-activated: #afb2b688;
+    --background-focused: #afb2b688;
+    --background-hover: #afb2b688;
+    --border-color: #fff;
+    --border-radius: 50%;
+    // --border-style: solid;
+    // --border-width: 8px;
+    // --box-shadow: 10px 10px;
+    --color: #F91E1E;
+    --color-activated: #ffffff;
+    --color-focused: #ffffff;
+    --color-hover: #ffffff;
+    --opacity: 1;
+    --padding-bottom: 20px;
+    --padding-end: 10px;
+    --padding-start: 10px;
+    --padding-top: 20px;
+    --ripple-color: #1e1e1e;
+    --transition: background-color 15ms linear;
+}
+
+.addpedido {
+    --background: #077ACC;
+    color: azure;
+    font-size: 16px;
+    height: 50px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.restpedido {
+    --background: #00A758;
+    color: azure;
+    font-size: 16px;
+    height: 50px;
+    font-family: 'Roboto', sans-serif;
+}
