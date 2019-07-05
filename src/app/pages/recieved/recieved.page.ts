@@ -1,3 +1,4 @@
+import { MenuController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
@@ -8,13 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecievedPage implements OnInit {
 
-  constructor(private router: Router) { }
+
+  habilitado = true;
+  constructor(private router: Router, private menu: MenuController) { }
 
   ngOnInit() {
+    this.menu.enable(this.habilitado);
   }
 
   tiendaPuntos() {
-    this.router.navigateByUrl('/');
+    this.router.navigateByUrl('/store-points');
     console.log('Ha seleccionado la tienda puntos');
   }
 

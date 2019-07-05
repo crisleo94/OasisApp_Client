@@ -1,3 +1,4 @@
+import { MenuController } from '@ionic/angular';
 import { OrderdetailedPageModule } from './../orderdetailed/orderdetailed.module';
 import { Component, OnInit, ViewChild } from '@angular/core';
 
@@ -8,11 +9,13 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 })
 export class OrderfinishedPage implements OnInit {
 
+  habilitado = true;
   @ViewChild('numero') numero: OrderdetailedPageModule;
 
-  constructor() { }
+  constructor(private menu: MenuController) { }
 
   ngOnInit() {
+    this.menu.enable(this.habilitado);
   }
 
   confirmarPedido() {

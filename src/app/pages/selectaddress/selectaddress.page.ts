@@ -1,7 +1,7 @@
 import { async } from '@angular/core/testing';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { PickerController, AlertController } from '@ionic/angular';
+import { PickerController, AlertController, MenuController } from '@ionic/angular';
 import { PickerOptions } from '@ionic/core';
 
 @Component({
@@ -11,13 +11,16 @@ import { PickerOptions } from '@ionic/core';
 })
 export class SelectaddressPage implements OnInit {
 
-  Horas = '1';
+  habilitado = true;
+  Horas = '';
 
   constructor(private router: Router,
               private picker: PickerController,
-              private alertCtrl: AlertController) { }
+              private alertCtrl: AlertController,
+              private menu: MenuController) { }
 
   ngOnInit() {
+    this.menu.enable(this.habilitado);
   }
 
   async selectHora() {
@@ -76,6 +79,7 @@ export class SelectaddressPage implements OnInit {
             text: 'OK',
             handler: () => {
               console.log('ok texto', this.Horas);
+              this.router.navigateByUrl('/orderfinished');
             }
           }
         ],

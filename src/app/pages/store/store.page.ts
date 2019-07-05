@@ -9,10 +9,13 @@ import { Router } from '@angular/router';
 })
 export class StorePage implements OnInit {
 
+  habilitado = true;
+
   constructor(private menu: MenuController, private router: Router) { }
 
 
   ngOnInit() {
+    this.menu.enable(this.habilitado);
   }
 
   openFirst() {
