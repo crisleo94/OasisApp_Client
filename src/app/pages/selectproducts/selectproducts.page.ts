@@ -1,5 +1,6 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { AlertController } from '@ionic/angular';
+import { AlertController, MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-selectproducts',
@@ -8,17 +9,28 @@ import { AlertController } from '@ionic/angular';
 })
 export class SelectproductsPage implements OnInit {
 
+  habilitado = true;
   numero = 0;
-  constructor(private alertCtrl: AlertController) {
+  constructor(private alertCtrl: AlertController, private router: Router, private menu: MenuController) {
    }
 
   ngOnInit() {
+    this.menu.enable(this.habilitado);
   }
 
   async confirmacionAlert() {
     const alert = await this.alertCtrl.create({
       header: 'Confirmación',
       message: 'Tu producto se ha agregado correctamente.',
+      buttons: [
+        {
+          text: 'OK',
+          handler: () => {
+            this.router.navigateByUrl('/store');
+            this.numero = 0;
+          }
+        }
+      ],
       cssClass: 'confirAlerta',
       translucent: true
     });
@@ -32,12 +44,15 @@ export class SelectproductsPage implements OnInit {
   }
 
   menos() {
-    if(this.numero > 0) {
+    if (this.numero > 0) {
       this.numero = this.numero - 1;
     } else {
       console.log('no se pueden negativos')
     }
     console.log('Un producto menos');
+  }
+
+  agregar() {
   }
 
 }

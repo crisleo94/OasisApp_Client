@@ -1,3 +1,4 @@
+import { MenuController } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeStorePage implements OnInit {
 
-  constructor() { }
+  habilitado = true;
+  constructor(private menu: MenuController) { }
 
   ngOnInit() {
+    this.menu.enable(this.habilitado);
   }
 
 }

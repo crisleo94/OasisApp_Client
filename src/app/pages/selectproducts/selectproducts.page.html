@@ -1,19 +1,7 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button menu="MiMenu" name="menu"></ion-menu-button>
-    </ion-buttons>
-    <ion-title text-center>
-      <img src="../../../assets/img/Oasis_Logo.png" width="64px" height="64px" alt="logo">
-    </ion-title>
-    <ion-buttons slot="end">
-      <ion-back-button defaultHref="/"></ion-back-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
+<app-header></app-header>
 
 <ion-content>
-  <app-menu></app-menu>
+    <!-- <app-menu></app-menu> -->
   <div class="imagen">
     <img src="../../../assets/img/Garrafon.png" alt="garrafon" width="100%" height="auto">
   </div>
@@ -48,10 +36,10 @@
       </div>
     </div>
     <ion-buttons class="text-center" style="display: block; margin-top: 10%;">
-      <ion-button class="addpedido" style="width: 95% !important;" (click)="confirmacionAlert()">
+      <ion-button class="addpedido" style="width: 95% !important;" (click)="confirmacionAlert(); agregar()">
         AGREGAR A MI PEDIDO
       </ion-button>
-      <ion-button class="restpedido" style="margin-top: 5%; width: 95% !important">
+      <ion-button routerLink="/orderdetailed" class="restpedido" style="margin-top: 5%; width: 95% !important">
         <ion-icon name="cart" slot="start"></ion-icon>
         VER MI ORDEN
       </ion-button>

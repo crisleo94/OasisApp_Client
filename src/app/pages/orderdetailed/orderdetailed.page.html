@@ -1,19 +1,7 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button menu="MiMenu" name="menu"></ion-menu-button>
-    </ion-buttons>
-    <ion-title text-center>
-      <img src="../../../assets/img/Oasis_Logo.png" width="64px" height="64px" alt="logo">
-    </ion-title>
-    <ion-buttons slot="end">
-      <ion-back-button defaultHref="/"></ion-back-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
+<app-header></app-header>
 
 <ion-content>
-  <app-menu></app-menu>
+    <!-- <app-menu></app-menu> -->
   <div class="container-fluid confOrden">
     <ion-grid style="margin-top: 5%;">
         <h5 text-center style="font-size: 20px; color: #5C5B5B; margin-bottom: 5%;">Confirma tu orden</h5>
@@ -29,12 +17,12 @@
         <ion-col size="3">
           <ion-row>
             <ion-col size="12">
-              <ion-button fill="clear">
+              <ion-button fill="clear" routerLink="/selectproducts">
                 <ion-icon size="large" name="create"></ion-icon>
               </ion-button>
             </ion-col>
             <ion-col size="12">
-              <ion-button fill="clear">
+              <ion-button fill="clear" (click)="confirmarCierre()">
                 <ion-icon size="large" name="close"></ion-icon>
              </ion-button>
             </ion-col>
@@ -53,12 +41,12 @@
         <ion-col size="3">
           <ion-row>
             <ion-col size="12">
-              <ion-button fill="clear">
+              <ion-button fill="clear" routerLink="/selectproducts">
                 <ion-icon size="large" name="create"></ion-icon>
               </ion-button>
             </ion-col>
             <ion-col size="12">
-              <ion-button fill="clear">
+              <ion-button fill="clear" (click)="confirmarCierrre()">
                 <ion-icon size="large" name="close"></ion-icon>
              </ion-button>
             </ion-col>
@@ -85,12 +73,12 @@
       </ion-row>
       <ion-row>
         <ion-col size="4">
-          <ion-button class="btnConf" routerLink="/" style="width: 98% !important" fill="clear">
+          <ion-button class="btnConf" routerLink="/store" style="width: 98% !important" fill="clear">
             <ion-icon size="large" name="rewind"></ion-icon>
           </ion-button>
         </ion-col>
         <ion-col size="8">
-          <ion-button class="btnConf" (click)="confirmarPedido()" style="width: 98% !important" fill="clear">
+          <ion-button routerLink="/selectaddress" class="btnConf" (click)="confirmarPedido()" style="width: 98% !important" fill="clear">
             CONFIRMAR
           </ion-button>
         </ion-col>

@@ -1,7 +1,7 @@
 <app-header></app-header>
 
 <ion-content>
-  <app-menu></app-menu>
+    <!-- <app-menu></app-menu> -->
   <div class="container-fluid confOrden">
     <ion-grid style="margin-top: 5%;">
         <h5 text-center style="font-size: 20px; color: #5C5B5B; margin-bottom: 5%;">Así queda tu pedido</h5>
@@ -100,7 +100,7 @@
         <ion-col size="8"><p style="font-weight: bold;">¿Con cuánto vas a pagar?</p></ion-col>
         <ion-col style="background-color: azure; padding-left: 50px; margin-bottom: 5%; color: gray;" size="4">$200</ion-col>
       </ion-row>
-      <ion-button class="btnConf" (click)="confirmarPedido()" style="width: 98% !important" fill="clear">
+      <ion-button routerLink="/recieved" class="btnConf" (click)="confirmarPedido()" style="width: 98% !important" fill="clear">
         CONFIRMAR ORDEN
       </ion-button>
     </ion-grid>
