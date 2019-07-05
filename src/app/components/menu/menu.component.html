@@ -4,31 +4,18 @@
           mode="md">
   <ion-content>
     <ion-list>
-      <ion-item  detail> 
-        <ion-label routerLink="/store"> 
-        Pedidos
-        </ion-label>
-       </ion-item>
-      <ion-item  detail> 
-        <ion-label routerLink="/orderddetailed">
-        Puntos
-        </ion-label>
-       </ion-item>
-      <ion-item  detail> 
-        <ion-label routerLink="/selectproducts">
-        Premios X Puntos
-        </ion-label>
-       </ion-item>
-      <ion-item  detail> 
-        <ion-label routerLink="/profile">
-        Perfil
-        </ion-label>
-       </ion-item>
-      <ion-item  detail> 
-        <ion-label routerLink="/login">
-        Cerrar Sesión
-        </ion-label>
-       </ion-item>
+      <ion-item detail>
+        <ion-label (click)="profile()">Perfil</ion-label>
+      </ion-item>
+      <ion-item detail routerLink="/cart">
+        <ion-label (click)="cart()">Mi Carrito</ion-label>
+      </ion-item>
+      <ion-item detail routerLink="/store-points">
+        <ion-label (click)="points()">Canjea tus puntos</ion-label>
+      </ion-item>
+      <ion-item detail>
+        <ion-label (click)="logout()">Cerrar Sesión</ion-label>
+      </ion-item>
     </ion-list>
   </ion-content>
 </ion-menu>

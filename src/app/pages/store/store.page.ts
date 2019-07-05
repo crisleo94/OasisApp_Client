@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
 import { MenuController } from '@ionic/angular';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-store',
@@ -8,7 +9,11 @@ import { MenuController } from '@ionic/angular';
 })
 export class StorePage implements OnInit {
 
-  constructor(private menu: MenuController) { }
+  constructor(private menu: MenuController, private router: Router) { }
+
+
+  ngOnInit() {
+  }
 
   openFirst() {
     this.menu.enable(true, 'first');
@@ -24,7 +29,17 @@ export class StorePage implements OnInit {
     this.menu.open('custom');
   }
 
-  ngOnInit() {
+  profile() {
+    this.router.navigateByUrl('/profile');
+  }
+  cart() {
+    this.router.navigateByUrl('/cart');
+  }
+  points() {
+    this.router.navigate(['/store-points']);
+  }
+  logout() {
+    this.router.navigateByUrl('/login');
   }
 
 }

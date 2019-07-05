@@ -14,3 +14,34 @@
 * {
     font-family: 'Roboto', sans-serif;
 }
+
+.picker-opt-selected {
+    border-top: black solid 1px !important;
+    border-bottom: black solid 1px !important;
+    color: black !important;
+    font-size: 28px !important;
+}
+
+.picker-opt {
+    color: rgba(0, 0, 0, 0.7);
+    font-size: 24px;
+}
+
+.btnCancel {
+    margin-right: 150px !important;
+}
+
+@media (min-width: 400px) {
+    .btnCancel {
+        margin-right: 200px !important;
+    }
+}
+
+ion-menu-controller {
+    display: block !important;
+    visibility: visible !important;
+    .hydrated {
+        display: block !important;
+        visibility: visible !important;
+    }
+}

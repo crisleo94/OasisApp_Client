@@ -1,0 +1,47 @@
+ion-content {
+    --background: url('src/assets/img/AGUA.png') no-repeat center center / cover !important;
+}
+
+ion-grid {
+    background-color: rgba(255, 255, 255, 0.7);
+    padding-bottom: 5% !important;
+    margin-bottom: 10% !important;
+
+}
+
+.btnVolver {
+    --background: #00A758;
+    color: azure;
+    font-size: 16px;
+    height: 50px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.premios {
+    background-color: #0376CB;
+    background: linear-gradient(rgba(3, 118, 203, 0.89999)), url(../../../assets/img/Puntos.png) no-repeat center / contain;
+    padding-bottom: 3%;
+}
+
+.circle ion-icon {
+    font-size: 60px;
+    color: #1EB12C;
+}
+
+// .gracias {
+//     font-size: 45px;
+//     font-weight: bold;
+//     color: azure;
+//     text-shadow: black 5px 5px 10px;
+// }
+
+// .graciasInfo {
+//     font-size: 16px;
+//     color: black;
+//     text-shadow: black 5px 5px 10px;
+// }
+
+ion-button {
+    width: 95% !important;
+    font-size: 12px !important;
+}
