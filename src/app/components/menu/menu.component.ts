@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { MenuController } from '@ionic/angular';
 
@@ -8,9 +9,12 @@ import { MenuController } from '@ionic/angular';
 })
 export class MenuComponent implements OnInit {
 
-  constructor(private menu: MenuController) { }
+  constructor(private menu: MenuController, private router: Router) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+
+    }
+
   openFirst() {
     this.menu.enable(true, 'first');
     this.menu.open('first');
@@ -23,5 +27,18 @@ export class MenuComponent implements OnInit {
   openCustom() {
     this.menu.enable(true, 'custom');
     this.menu.open('custom');
+  }
+
+  profile() {
+    this.router.navigateByUrl('/profile');
+  }
+  cart() {
+    this.router.navigateByUrl('/cart');
+  }
+  points() {
+    this.router.navigate(['/store-points']);
+  }
+  logout() {
+    this.router.navigateByUrl('/login');
   }
 }

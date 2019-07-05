@@ -12,7 +12,14 @@ const routes: Routes = [
   { path: 'selectproducts', loadChildren: './pages/selectproducts/selectproducts.module#SelectproductsPageModule' },
   { path: 'selectaddress', loadChildren: './pages/selectaddress/selectaddress.module#SelectaddressPageModule' },
   { path: 'orderdetailed', loadChildren: './pages/orderdetailed/orderdetailed.module#OrderdetailedPageModule' },
-  { path: 'orderfinished', loadChildren: './pages/orderfinished/orderfinished.module#OrderfinishedPageModule' },
+  { path: 'orderfinished', loadChildren: './pages/orderfinished/orderfinished.module#OrderfinishedPageModule' },  { path: 'selecttime', loadChildren: './pages/selecttime/selecttime.module#SelecttimePageModule' },
+  { path: 'recieved', loadChildren: './pages/recieved/recieved.module#RecievedPageModule' },
+  { path: 'home-store', loadChildren: './pages/home-store/home-store.module#HomeStorePageModule' },
+  { path: 'promotions', loadChildren: './pages/promotions/promotions.module#PromotionsPageModule' },
+  { path: 'contact-info', loadChildren: './pages/contact-info/contact-info.module#ContactInfoPageModule' },
+  { path: 'cart', loadChildren: './pages/cart/cart.module#CartPageModule' },
+  { path: 'store-points', loadChildren: './pages/store-points/store-points.module#StorePointsPageModule' },
+
 ];
 
 @NgModule({

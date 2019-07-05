@@ -4,9 +4,16 @@ ion-content {
 
 ion-grid {
     background-color: #B8E1E4;
+    padding-bottom: 5% !important;
+    margin-bottom: 10% !important;
+
+     h5 {
+         margin-top: -0.5%;
+     }
+
 }
 
-.btnConf {
+ion-col .btnConf {
     --background: #00A758;
     color: azure;
     font-size: 16px;
@@ -14,7 +21,7 @@ ion-grid {
     font-family: 'Roboto', sans-serif;
 }
 
-.d-flex ion-button {
+ion-col ion-button {
     --background: #F1F5F7;
     height: 100% !important;
     color: black !important;

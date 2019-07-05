@@ -1,0 +1,50 @@
+<app-header></app-header>
+<ion-content text-center>
+  <app-menu></app-menu>
+  <div class="container-fluid">
+    <ion-grid style="margin-top: 5%;" class="container-fluid">
+      <h5 text-center style="font-size: 20px; color: #5C5B5B; margin-bottom: 5%;">¡Tu orden ha sido recibida!</h5>
+      <ion-row >
+        <ion-col size="12">
+          <div class="circle">
+            <ion-icon name="checkmark-circle"></ion-icon>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row >
+        <ion-col size="12">
+          <p style="color: rgb(75, 74, 74); font-size: 20px;">Pedido #</p>
+        </ion-col>
+      </ion-row>
+      <ion-row >
+        <ion-col size="12">
+          <p style="font-size: 20px;">Garrafón 20L x3 = $75</p>
+          <p style="font-size: 20px;">Bolsa de Hielo 5kg x2 = $60</p>
+          <br>
+          <p style="font-size: 20px;">Total a pagar $135</p>
+        </ion-col>
+      </ion-row>
+      <ion-row class="premios">
+        <ion-col size="4">
+          <img src="../../../assets/img/Puntos.png" alt="estrellas">
+        </ion-col>
+        <ion-col size="8" style="color: azure;">
+          <p style="font-size: 16px;">Con tu orden ganaste</p>
+          <p style="font-weight: bolder; font-size: 24px;">¡25 puntos!</p>
+        </ion-col>
+        <ion-col size="12">
+          <ion-button class="btnVolver" (click)="tiendaPuntos()" fill="clear">
+            canjear tus puntos
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+    <!-- <div style="padding-top: 80%" class="container-fluid text-center">
+      <p class="gracias">¡Gracias por su pedido!</p>
+      <p class="graciasInfo">Su pedido llegará en las horas seleccionadas</p>
+      <ion-button routerLink="/store" class="btnVolver" fill="clear" style="margin-top: 10%;">
+        Volver al Inicio
+      </ion-button>
+    </div> -->
+  </ion-content>

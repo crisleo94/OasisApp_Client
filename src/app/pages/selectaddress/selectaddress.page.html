@@ -1,9 +1,31 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>selectaddress</ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-header></app-header>
 
 <ion-content>
-
+  <app-menu></app-menu>
+  <div class="container-fluid confOrden">
+    <ion-grid style="margin-top: 5%;">
+        <h5 text-center style="font-size: 20px; color: #5C5B5B; margin-bottom: 5%;">Enviar a: </h5>
+      <ion-row style="background-color: azure; margin-bottom: 5%;">
+        <ion-col size="12">
+          <ion-row>
+            <ion-col size="10">
+              <p style="font-size: 16px;">DIRECCIÓN DE ENVÍO</p>
+            </ion-col>
+            <ion-col size="2">
+              <ion-button fill="clear">
+                <ion-icon name="create"></ion-icon>
+              </ion-button>
+            </ion-col>
+          </ion-row>
+          <p style="color: gray;">Madelaine Arno</p>
+          <p style="color: gray;">6259 Monroe Street</p>
+          <p style="color: gray;">Bakersfield, CA 93306</p>
+        </ion-col>
+      </ion-row>
+      <ion-button class="btnHora" (click)="selectHora()" style="width: 98% !important">
+        SELECCIONAR HORA
+      </ion-button>
+    </ion-grid>
+    
+  </div>
 </ion-content>

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { OrderdetailedPageModule } from './../orderdetailed/orderdetailed.module';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-orderfinished',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrderfinishedPage implements OnInit {
 
+  @ViewChild('numero') numero: OrderdetailedPageModule;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  confirmarPedido() {
+    console.log('orden hecha');
   }
 
 }

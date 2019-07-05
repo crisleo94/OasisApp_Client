@@ -17,60 +17,52 @@
   <div class="container-fluid confOrden">
     <ion-grid style="margin-top: 5%;">
         <h5 text-center style="font-size: 20px; color: #5C5B5B; margin-bottom: 5%;">Confirma tu orden</h5>
-      <ion-row style="background-color: azure;">
-        <ion-col size="4">
+      <ion-row style="background-color: azure; margin-bottom: 5%;">
+        <ion-col size="4" class="d-flex justify-content-center algin-items-center">
           <img src="../../../assets/img/Garrafoncopy2.png" height="107px" alt="garrafon" class="img-fluid">
         </ion-col>
-        <ion-col size="8">
-          <ion-row>
-            <ion-col size="8">
-              <p style="font-size: 16px;">Garrafón 20L</p>
-            </ion-col>
-            <ion-col size="4" class="d-flex justify-content-center align-items-center">
-              <ion-button>
-                  <ion-icon size="large" name="create"></ion-icon>
-              </ion-button>
-            </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col size="8">
-              <p style="color: gray;">Cantidad {{numero}}</p>
-            </ion-col>
-            <ion-col size="4" class="d-flex justify-content-center align-items-center">
-              <ion-button>
-                <ion-icon size="large" name="close"></ion-icon>
-              </ion-button>
-            </ion-col>
-          </ion-row>        
+        <ion-col size="5">
+          <p style="font-size: 16px;">Garrafón 20L</p>
+          <p style="color: gray;">Cantidad {{numero}}</p>
           <p style="margin-bottom: -3%; color: #2798F3;">$25</p>
         </ion-col>
-      </ion-row>
-      <ion-row style="background-color: azure; margin-top: 5%;">
-        <ion-col size="4">
-          <img src="../../../assets/img/Hielo5Kgcopy.png" alt="hielo" class="img-fluid">
-        </ion-col>
-        <ion-col size="8">
+        <ion-col size="3">
           <ion-row>
-            <ion-col size="8">
-              <p style="font-size: 16px;">Bolsa de Hielo 5kg</p>
-            </ion-col>
-            <ion-col size="4" class="d-flex justify-content-center align-items-center">
-              <ion-button>
-                  <ion-icon size="large" name="create"></ion-icon>
+            <ion-col size="12">
+              <ion-button fill="clear">
+                <ion-icon size="large" name="create"></ion-icon>
               </ion-button>
+            </ion-col>
+            <ion-col size="12">
+              <ion-button fill="clear">
+                <ion-icon size="large" name="close"></ion-icon>
+             </ion-button>
             </ion-col>
           </ion-row>
+        </ion-col>
+      </ion-row>
+      <ion-row style="background-color: azure;">
+        <ion-col size="4" class="d-flex justify-content-center algin-items-center">
+          <img src="../../../assets/img/Hielo5KgCopy 2.png" height="107px" alt="garrafon" class="img-fluid">
+        </ion-col>
+        <ion-col size="5">
+          <p style="font-size: 16px;">Bolsa de Hielo 5kg</p>
+          <p style="color: gray;">Cantidad {{numero}}</p>
+          <p style="margin-bottom: -3%; color: #2798F3;">$30</p>
+        </ion-col>
+        <ion-col size="3">
           <ion-row>
-            <ion-col size="8">
-              <p style="color: gray;">Cantidad {{numero}}</p>
-            </ion-col>
-            <ion-col size="4" class="d-flex justify-content-center align-items-center">
-              <ion-button>
-                <ion-icon size="large" name="close"></ion-icon>
+            <ion-col size="12">
+              <ion-button fill="clear">
+                <ion-icon size="large" name="create"></ion-icon>
               </ion-button>
             </ion-col>
-          </ion-row> 
-          <p style="margin-bottom: -3%; color: #2798F3;">$30</p>
+            <ion-col size="12">
+              <ion-button fill="clear">
+                <ion-icon size="large" name="close"></ion-icon>
+             </ion-button>
+            </ion-col>
+          </ion-row>
         </ion-col>
       </ion-row>
       <div class="precios" style="font-weight: bold !important;">
@@ -91,9 +83,18 @@
         <ion-col size="8"><p style="font-weight: bold;">¿Con cuánto vas a pagar?</p></ion-col>
         <ion-col style="background-color: azure; padding-left: 50px; margin-bottom: 5%; color: gray;" size="4">$200</ion-col>
       </ion-row>
-      <ion-button class="btnConf" (click)="confirmarPedido()" style="width: 98% !important">
-        CONFIRMAR
-      </ion-button>
+      <ion-row>
+        <ion-col size="4">
+          <ion-button class="btnConf" routerLink="/" style="width: 98% !important" fill="clear">
+            <ion-icon size="large" name="rewind"></ion-icon>
+          </ion-button>
+        </ion-col>
+        <ion-col size="8">
+          <ion-button class="btnConf" (click)="confirmarPedido()" style="width: 98% !important" fill="clear">
+            CONFIRMAR
+          </ion-button>
+        </ion-col>
+      </ion-row>
     </ion-grid>
   </div>
 </ion-content>
