@@ -4,11 +4,31 @@
           mode="md">
   <ion-content>
     <ion-list>
-      <ion-item>Pedidos</ion-item>
-      <ion-item>Puntos</ion-item>
-      <ion-item>Premios X Puntos</ion-item>
-      <ion-item>Perfil</ion-item>
-      <ion-item>Cerrar Sesión</ion-item>
+      <ion-item  detail> 
+        <ion-label routerLink="/store"> 
+        Pedidos
+        </ion-label>
+       </ion-item>
+      <ion-item  detail> 
+        <ion-label routerLink="/orderddetailed">
+        Puntos
+        </ion-label>
+       </ion-item>
+      <ion-item  detail> 
+        <ion-label routerLink="/selectproducts">
+        Premios X Puntos
+        </ion-label>
+       </ion-item>
+      <ion-item  detail> 
+        <ion-label routerLink="/profile">
+        Perfil
+        </ion-label>
+       </ion-item>
+      <ion-item  detail> 
+        <ion-label routerLink="/login">
+        Cerrar Sesión
+        </ion-label>
+       </ion-item>
     </ion-list>
   </ion-content>
 </ion-menu>
