@@ -1,3 +1,25 @@
 ion-content {
     --background: url('src/assets/img/fondo.png') no-repeat center center / cover !important;
 }
+
+ion-fab-button {
+    --background: #00A455;
+    --background-activated: #00A455;
+    --background-focused: #00A455;
+    --background-hover: #00A455;
+    // --border-color: #3880ff;
+    // --border-radius: 8px;
+    // --border-style: solid;
+    // --border-width: 2px;
+    // --box-shadow: 10px 10px;
+    // --color: #ffffff;
+    // --color-activated: #3880ff;
+    // --color-focused #3880ff;
+    // --color-hover: #3880ff
+    // --padding-bottom: 20px;
+    // --padding-end: 20px;
+    // --padding-start: 20px;
+    // --padding-top: 20px;
+    // --ripple-color: #1e1e1e;
+    // --transition: background-color 15ms linear;
+}
