@@ -1,8 +1,10 @@
+import { HoraService } from './../../services/hora.service';
 import { async } from '@angular/core/testing';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { PickerController, AlertController, MenuController } from '@ionic/angular';
 import { PickerOptions } from '@ionic/core';
+import { JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-selectaddress',
@@ -12,15 +14,17 @@ import { PickerOptions } from '@ionic/core';
 export class SelectaddressPage implements OnInit {
 
   habilitado = true;
-  Horas = '';
+  horaSeleccionada = '';
 
   constructor(private router: Router,
               private picker: PickerController,
               private alertCtrl: AlertController,
-              private menu: MenuController) { }
+              private menu: MenuController,
+              private hora: HoraService) { }
 
   ngOnInit() {
     this.menu.enable(this.habilitado);
+    this.hora.horaSeleccionada.subscribe(hora => this.horaSeleccionada = hora);
   }
 
   async selectHora() {
@@ -34,10 +38,10 @@ export class SelectaddressPage implements OnInit {
         },
         {
           text: 'Confirmar',
-          handler: () => {
-            // this.confirmacion();
-            console.log('confirmacion', this.Horas);
-            this.confirmacion();
+          handler: (value) => {
+            value = this.horaSeleccionada;
+            console.log('confirmacion', this.horaSeleccionada);
+            this.confirmacion(value);
           }
         }
       ],
@@ -64,21 +68,22 @@ export class SelectaddressPage implements OnInit {
     picker.onDidDismiss().then(async data => {
       const col = await picker.getColumn('Horas');
       console.log('Esta es la columna ', col);
-      this.Horas = col.options[col.selectedIndex].text;
-      console.log(this.Horas);
+      this.horaSeleccionada = col.options[col.selectedIndex].text;
+      console.log(this.horaSeleccionada);
       // this.confirmacion();
     });
   }
 
-  async confirmacion() {
+  async confirmacion(value) {
     const alert = await this.alertCtrl.create({
       header: 'Confirmación Pedido',
-        message: `Su pedido será entregado entre las ${this.Horas}`,
+      subHeader: 'Si desea cambiar la hora, seleccione cancelar',
+        message: 'Su pedido será entregado entre las ' + JSON.stringify(value),
         buttons: [
           {
             text: 'OK',
             handler: () => {
-              console.log('ok texto', this.Horas);
+              console.log('ok texto', this.horaSeleccionada);
               this.router.navigateByUrl('/orderfinished');
             }
           }
