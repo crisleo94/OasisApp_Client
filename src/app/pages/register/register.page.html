@@ -5,16 +5,36 @@
       <ion-label style="font-family: 'Roboto', sans-serif; color: white;"><small>¿Ya tienes una cuenta? <a routerLink="/login" style="font-weight: bold;">Ingresa aquí</a></small></ion-label>
     </div>
     <div class="inputsRegistro">
-      <ion-input type="text" name="nombre" placeholder="Nombre completo"></ion-input>
-      <ion-input type="text" name="user" placeholder="Usuario"></ion-input>
-      <ion-input type="email" name="mail" placeholder="Correo electrónico"></ion-input>
-      <ion-input type="password" name="pass" placeholder="Contraseña"></ion-input>
-      <ion-input type="password" name="pass" placeholder="Confirma tu Contraseña"></ion-input>
+      <ion-input  type="text" 
+                  name="nombre" 
+                  placeholder="Nombre completo">
+      </ion-input>
+      <ion-input  type="text" 
+                  name="user" 
+                  placeholder="Usuario">
+      </ion-input>
+      <ion-input  type="email" 
+                  name="mail" 
+                  placeholder="Correo electrónico"
+                  email>
+      </ion-input>
+      <ion-input  type="password" 
+                  name="pass" 
+                  placeholder="Contraseña"
+                  password
+                  minLenght="6">
+      </ion-input>
+      <ion-input  type="password" 
+                  name="pass" 
+                  placeholder="Confirma tu Contraseña"
+                  password
+                  minLenght="6">
+      </ion-input>
     </div>
     <div (click)="register()" class="d-flex justify-content-center" style="background-color: #00A758; color: white;
                                                       border: black solid 0.5px; height: 44px;">
       <ion-buttons>
-        <ion-button routerLink="/register2" style=" text-transform: capitalize !important; font-family: 'Roboto', sans-serif;">
+        <ion-button style=" text-transform: capitalize !important; font-family: 'Roboto', sans-serif;">
           Siguiente
         </ion-button>
       </ion-buttons>
