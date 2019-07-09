@@ -6,13 +6,13 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class HoraService {
 
-  private fuenteHora = new BehaviorSubject('defaultHora');
+  fuenteHora = new BehaviorSubject('');
   horaSeleccionada = this.fuenteHora.asObservable();
 
   constructor() {
    }
 
    cambiaHora(hora: string) {
-      this.fuenteHora.next(hora);
+     this.fuenteHora.next(hora);
   }
 }

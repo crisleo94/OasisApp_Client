@@ -15,6 +15,8 @@ export class SelectaddressPage implements OnInit {
 
   habilitado = true;
   horaSeleccionada = '';
+  indice = 0;
+  horaServicio = '';
 
   constructor(private router: Router,
               private picker: PickerController,
@@ -24,7 +26,7 @@ export class SelectaddressPage implements OnInit {
 
   ngOnInit() {
     this.menu.enable(this.habilitado);
-    this.hora.horaSeleccionada.subscribe(hora => this.horaSeleccionada = hora);
+    // this.hora.horaSeleccionada.subscribe(hora => this.horaSeleccionada = hora);
   }
 
   async selectHora() {
@@ -39,9 +41,10 @@ export class SelectaddressPage implements OnInit {
         {
           text: 'Confirmar',
           handler: (value) => {
-            value = this.horaSeleccionada;
+            this.horaSeleccionada = value;
             console.log('confirmacion', this.horaSeleccionada);
             this.confirmacion(value);
+            console.log(this.indice);
           }
         }
       ],
@@ -57,8 +60,7 @@ export class SelectaddressPage implements OnInit {
             {text: '13:00 - 14:00', value: 6},
             {text: '14:00 - 15:00', value: 7},
             {text: '15:00 - 16:00', value: 8},
-            {text: '16:00 - 17:00', value: 9},
-            {text: '17:00 - 18:00', value: 10}
+            {text: '16:00 - 17:00', value: 9}
           ]
         }
       ]
@@ -68,17 +70,19 @@ export class SelectaddressPage implements OnInit {
     picker.onDidDismiss().then(async data => {
       const col = await picker.getColumn('Horas');
       console.log('Esta es la columna ', col);
-      this.horaSeleccionada = col.options[col.selectedIndex].text;
+      this.horaSeleccionada = await col.options[col.selectedIndex].text;
+      this.indice = +col.options[col.selectedIndex].value;
       console.log(this.horaSeleccionada);
       // this.confirmacion();
     });
   }
 
   async confirmacion(value) {
+    const hora2 = JSON.stringify(value);
     const alert = await this.alertCtrl.create({
       header: 'Confirmación Pedido',
       subHeader: 'Si desea cambiar la hora, seleccione cancelar',
-        message: 'Su pedido será entregado entre las ' + JSON.stringify(value),
+        message: 'Su pedido será entregado entre las ' + hora2[this.indice],
         buttons: [
           {
             text: 'OK',
@@ -88,6 +92,66 @@ export class SelectaddressPage implements OnInit {
             }
           }
         ],
+    });
+
+    await alert.present();
+  }
+
+  cambioHora() {
+    this.hora.cambiaHora(this.horaSeleccionada);
+  }
+
+  async newAddress() {
+    const alert = await this.alertCtrl.create({
+      header: 'Ingresar nueva dirección',
+      inputs: [
+        {
+          name: 'direccion',
+          type: 'text',
+          placeholder: 'Dirección 1'
+        },
+        {
+          name: 'direccion2',
+          type: 'text',
+          placeholder: 'Dirección 2'
+        },
+        {
+          name: 'codigoPostal',
+          type: 'number',
+          placeholder: 'C.P'
+        },
+        // input date with min & max
+        {
+          name: 'poblacion',
+          type: 'text',
+          placeholder: 'Población'
+        },
+        // input date without min nor max
+        {
+          name: 'referencia',
+          type: 'text',
+          placeholder: 'Referencia(Color casa, frente a negocio, etc)'
+        }
+      ],
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          handler: () => {
+            console.log('Confirm Cancel');
+          }
+        }, {
+          text: 'Ok',
+          handler: () => {
+            console.log('Confirm Ok');
+          }
+        }, {
+          text: 'Guardar en el perfil',
+          handler: () => {
+            console.log('guardó la dirección');
+          }
+        }
+      ]
     });
 
     await alert.present();
