@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { PickerController, AlertController, MenuController } from '@ionic/angular';
 import { PickerOptions } from '@ionic/core';
 import { JsonPipe } from '@angular/common';
+import { text } from '@angular/core/src/render3';
+import { Options } from 'selenium-webdriver/chrome';
 
 @Component({
   selector: 'app-selectaddress',
@@ -15,7 +17,7 @@ export class SelectaddressPage implements OnInit {
 
   habilitado = true;
   horaSeleccionada = '';
-  indice = 0;
+  indice = 1;
   horaServicio = '';
 
   constructor(private router: Router,
@@ -71,18 +73,18 @@ export class SelectaddressPage implements OnInit {
       const col = await picker.getColumn('Horas');
       console.log('Esta es la columna ', col);
       this.horaSeleccionada = await col.options[col.selectedIndex].text;
-      this.indice = +col.options[col.selectedIndex].value;
       console.log(this.horaSeleccionada);
+      this.indice += 1;
       // this.confirmacion();
     });
   }
 
   async confirmacion(value) {
-    const hora2 = JSON.stringify(value);
     const alert = await this.alertCtrl.create({
       header: 'Confirmación Pedido',
       subHeader: 'Si desea cambiar la hora, seleccione cancelar',
-        message: 'Su pedido será entregado entre las ' + hora2[this.indice],
+// tslint:disable-next-line: no-string-literal
+        message: 'Su pedido será entregado entre las ' + this.horaSeleccionada.split,
         buttons: [
           {
             text: 'OK',
