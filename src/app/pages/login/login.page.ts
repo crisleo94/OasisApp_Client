@@ -1,3 +1,4 @@
+import { UsuarioModel } from './../../models/usuario.model';
 import { AlertController, MenuController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
@@ -11,14 +12,9 @@ import { NgForm } from '@angular/forms';
 export class LoginPage implements OnInit {
 
   habilitado = false;
-  correo: string;
-  cont: string;
-  user = {
-    mail: '',
-    pass: ''
-  };
-
-  form: NgForm;
+  mail: string;
+  pass: string;
+  user = new UsuarioModel();
 
   constructor(private router: Router, private alert: AlertController, private menu: MenuController) { }
 
@@ -26,21 +22,20 @@ export class LoginPage implements OnInit {
     this.menu.enable(this.habilitado);
   }
 
-  login(form) {
-
-    if (this.user.mail === 'prueba@prueba.com' && this.user.pass === 'prueba123') {
-      this.router.navigateByUrl('/home-store');
-      localStorage.setItem('mail', this.correo);
-      localStorage.setItem('pass', this.cont);
-    } else {
-       this.presentAlert();
+  login(form: NgForm) {
+    if (form.valid) {
+      if (this.user.email === 'prueba@prueba.com' && this.user.password === 'prueba123') {
+        this.router.navigateByUrl('/home-store');
+      }
+    } else if (form.invalid) {
+      this.errorLogin();
     }
   }
 
-  async presentAlert() {
+  async errorLogin() {
     const alert = await this.alert.create({
       header: 'Error',
-      message: 'Datos incorrectos',
+      message: 'Correo y/o contraseña incorrectos',
       buttons: ['OK']
     });
 

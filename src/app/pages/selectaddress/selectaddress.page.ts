@@ -15,9 +15,9 @@ import { Options } from 'selenium-webdriver/chrome';
 })
 export class SelectaddressPage implements OnInit {
 
+  seleccion;
   habilitado = true;
   horaSeleccionada = '';
-  indice = 1;
   horaServicio = '';
 
   constructor(private router: Router,
@@ -42,11 +42,9 @@ export class SelectaddressPage implements OnInit {
         },
         {
           text: 'Confirmar',
-          handler: (value) => {
-            this.horaSeleccionada = value;
-            console.log('confirmacion', this.horaSeleccionada);
-            this.confirmacion(value);
-            console.log(this.indice);
+          handler: ( event ) => {
+            console.log('confirmacion', event);
+            this.confirmacion( event );
           }
         }
       ],
@@ -74,17 +72,16 @@ export class SelectaddressPage implements OnInit {
       console.log('Esta es la columna ', col);
       this.horaSeleccionada = await col.options[col.selectedIndex].text;
       console.log(this.horaSeleccionada);
-      this.indice += 1;
       // this.confirmacion();
     });
   }
 
-  async confirmacion(value) {
+  async confirmacion( event ) {
     const alert = await this.alertCtrl.create({
       header: 'Confirmación Pedido',
       subHeader: 'Si desea cambiar la hora, seleccione cancelar',
 // tslint:disable-next-line: no-string-literal
-        message: 'Su pedido será entregado entre las ' + this.horaSeleccionada.split,
+        message: 'Su pedido será entregado entre las ' +  event.Horas.text,
         buttons: [
           {
             text: 'OK',
@@ -97,6 +94,10 @@ export class SelectaddressPage implements OnInit {
     });
 
     await alert.present();
+  }
+
+  confirmarCierrre() {
+    console.log('cierre confirmado');
   }
 
   cambioHora() {
