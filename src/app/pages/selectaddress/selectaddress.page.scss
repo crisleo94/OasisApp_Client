@@ -22,14 +22,6 @@ ion-col ion-button {
     --color-hover: #000;
 }
 
-.btnHora {
-    --background: #00A758;
-    color: azure;
-    font-size: 16px;
-    height: 50px;
-    font-family: 'Roboto', sans-serif;
-}
-
 .btnNewaddress {
     --background: #00A758;
     color: azure;
@@ -38,3 +30,37 @@ ion-col ion-button {
     font-family: 'Roboto', sans-serif;
 }
 
+ion-item {
+    --background: transparent;
+    // --background-activated: #3880ff
+    // --background-focused: #3880ff;
+    // --background-hover: #3880ff;
+    // --border-color: #3880ff;
+    // --border-radius: 8px;
+    // --border-style: solid;
+    // --border-width: 8px;
+    // --box-shadow: 10px 10px;
+    // --color: #ffffff;
+    // --color-activated: #3880ff;
+    // --color-focused: #3880ff;
+    // --color-hover: #3880ff;
+    // --detail-icon-color: #989aa2;
+    // --detail-icon-font-size: 16px;
+    // --detail-icon-opacity: 1;
+    // --highlight-color-focused: #0cd1e8;
+    // --highlight-color-invalid: #f04141;
+    // --highlight-color-valid: #10dc60;
+    // --highlight-height: 0px;
+    // --inner-border-width: 0px;
+    // --inner-box-shadow: 4px 4px;
+    --inner-padding-bottom: 0px;
+    --inner-padding-end: 0px;
+    --inner-padding-start: 0px;
+    --inner-padding-top: 0px;
+    // --min-height: auto;
+    --padding-bottom: 0px;
+    --padding-end: 0px;
+    --padding-start: 0px;
+    --padding-top: 0px;
+    // --transition: background-color 15ms linear;
+}

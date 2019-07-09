@@ -22,13 +22,16 @@
           <p style="color: gray;">Bakersfield, CA 93306</p>
         </ion-col>
       </ion-row>
-      <ion-button class="btnNewaddress" (click)="newAddress()" style="width: 98% !important">
+      <ion-button class="btnNewaddress" 
+                  (click)="newAddress()" 
+                  style="width: 98% !important">
         NUEVA DIRECCIÓN
       </ion-button>
-      <ion-button class="btnHora" (click)="selectHora()" style="width: 98% !important">
-        SELECCIONAR HORARIO
+      <ion-button class="btnNewaddress" 
+                  style="width: 98% !important"
+                  (click)="selectHora()">
+          SELECCIONAR HORARIO
       </ion-button>
     </ion-grid>
-    
   </div>
 </ion-content>

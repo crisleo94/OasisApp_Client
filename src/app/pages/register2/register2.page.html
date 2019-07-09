@@ -2,19 +2,57 @@
   <ion-grid fixed class="container-fluid" style="margin-top: 3%">
     <ion-row>
       <ion-col size="12">
-        <form style="padding-top: 5%; padding-bottom: 5%;">
+        <form (ngSubmit)="register2( reg2 )" #reg2="ngForm" style="padding-top: 5%; padding-bottom: 5%;">
           <img src="assets/img/VectorSmartObject.png" width="120">
           <br>
           <h2 style="font-weight: bold;">Registra tu dirección</h2>
           <br>
           <div class="inputsRegistro container-fluid">
-            <ion-input type="text" name="dir1" placeholder="Dirección 1"></ion-input>
-            <ion-input type="text" name="dir2" placeholder="Dirección 2"></ion-input>
+            <ion-input  type="text" 
+                        name="dir1" 
+                        placeholder="Dirección 1"
+                        minlenght="2"
+                        [(ngModel)]="user.direccion1"
+                        required
+                        #dir1>
+            </ion-input>
+            <ion-input  type="text" 
+                        name="dir2"  
+                        placeholder="Dirección 2"
+                        minlenght="2"
+                        [(ngModel)]="user.direccion2"
+                        required
+                        #dir2>
+            </ion-input>
             <div class=" d-flex justify-content-center align-items-center" style="display: inline-block;">
-              <ion-input size="6" style="margin-right: 2%;" type="text" name="CP" placeholder="C.P."></ion-input>
-              <ion-input size="6" style="margin-left: 2%;" type="text" name="poblacion" placeholder="Población"></ion-input>
+              <ion-input  size="6" 
+                          style="margin-right: 2%;" 
+                          type="text" 
+                          name="CP" 
+                          placeholder="C.P."
+                          minlenght="2"
+                          [(ngModel)]="user.codigoPostal"
+                          required
+                          #postcode>
+              </ion-input>
+              <ion-input  size="6" 
+                          style="margin-left: 2%;" 
+                          type="text" 
+                          name="poblacion" 
+                          placeholder="Población"
+                          minlenght="2"
+                          [(ngModel)]="user.poblacion"
+                          required
+                          #poblacion>
+              </ion-input>
             </div>
-            <ion-input type="text" name="referencia" placeholder="Referencia(Color casa, frente a negocio, etc)">
+            <ion-input  type="text" 
+                        name="referencia" 
+                        placeholder="Referencia(Color casa, frente a negocio, etc)"
+                        minlenght="2"
+                        [(ngModel)]="user.referencia"
+                        required
+                        #ref>
             </ion-input>
           </div>
           <br>
@@ -24,14 +62,9 @@
           <div class="container-fluid">
             <ion-img src="assets/img/Mapa.png"></ion-img>
             <br>
-            <div (click)="register2()" class="d-flex justify-content-center" style="background-color: #00A758; color: white;
-                                                        border: black solid 0.5px; height: 44px;">
-              <ion-buttons>
-                <ion-button routerLink="/login" style=" text-transform: capitalize !important; font-family: 'Roboto', sans-serif;">
-                  Confirmar
-                </ion-button>
-              </ion-buttons>
-            </div>
+            <ion-button class="btnRegister" type="submit">
+              Siguiente
+            </ion-button>
           </div>
         </form>
       </ion-col>

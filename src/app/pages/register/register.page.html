@@ -1,44 +1,58 @@
 <ion-content>
-  <form action="" class="container-fluid">
+  <form (ngSubmit)="register( registro )" #registro="ngForm" class="container-fluid">
     <div class="text-center" style="margin-bottom: 3%;">
       <ion-label text-center style="font-family: 'Roboto', sans-serif; color: white;">¡Bienvenido!, por favor regístrate</ion-label><br>
       <ion-label style="font-family: 'Roboto', sans-serif; color: white;"><small>¿Ya tienes una cuenta? <a routerLink="/login" style="font-weight: bold;">Ingresa aquí</a></small></ion-label>
     </div>
     <div class="inputsRegistro">
       <ion-input  type="text" 
-                  name="nombre" 
-                  placeholder="Nombre completo">
+                  name="nombre"
+                  placeholder="Nombre completo"
+                  required
+                  minLenght="2"
+                  [(ngModel)]="user.nombre"
+                  #nombre>
       </ion-input>
       <ion-input  type="text" 
                   name="user" 
-                  placeholder="Usuario">
+                  placeholder="Usuario"
+                  required
+                  minLenght="2"
+                  [(ngModel)]="user.usuario"
+                  #usuario>
       </ion-input>
       <ion-input  type="email" 
                   name="mail" 
                   placeholder="Correo electrónico"
-                  email>
+                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+                  email
+                  required
+                  [(ngModel)]="user.email"
+                  #mail>
       </ion-input>
       <ion-input  type="password" 
                   name="pass" 
                   placeholder="Contraseña"
                   password
-                  minLenght="6">
+                  minLenght="6"
+                  required
+                  [(ngModel)]="user.password"
+                  #pass>
       </ion-input>
       <ion-input  type="password" 
                   name="pass" 
                   placeholder="Confirma tu Contraseña"
                   password
-                  minLenght="6">
+                  minLenght="6"
+                  required
+                  [(ngModel)]="user.password2"
+                  #pass2>
       </ion-input>
+      <ion-label class="errorPass" *ngIf="pass.value != pass2.value">Las contraseñas no coinciden</ion-label>
     </div>
-    <div (click)="register()" class="d-flex justify-content-center" style="background-color: #00A758; color: white;
-                                                      border: black solid 0.5px; height: 44px;">
-      <ion-buttons>
-        <ion-button style=" text-transform: capitalize !important; font-family: 'Roboto', sans-serif;">
-          Siguiente
-        </ion-button>
-      </ion-buttons>
-    </div>
+    <ion-button class="btnRegister"type="submit">
+      Siguiente
+    </ion-button>
   </form>
   <div class="container-fluid text-center" style="color: white !important;">
     <ion-label><small>By clicking Create An Account, yo agree <br>to our <a href="" style="font-weight: bold;">Term of Services</a></small></ion-label>
