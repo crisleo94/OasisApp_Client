@@ -1,5 +1,7 @@
 {
   "name": "Oasis-App-Frontend",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
