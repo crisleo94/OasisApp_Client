@@ -1,9 +1,36 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>profile</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content>
-
+<ion-toolbar text-center no-border>
+    <ion-buttons slot="start">
+        <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title style="margin-left: -20%;">PERFIL</ion-title>
+</ion-toolbar>
+<ion-content text-center>
+    <img style="margin-top: 5%" src="assets/img/avatar.jpg" width="150" />
+    <ion-card text-center>
+        <ion-card-header>
+            <ion-card-title style="color: azure; border-color: 1px solid black;">Nombre Usuario</ion-card-title>
+        </ion-card-header>
+    </ion-card>
+    <ion-list style="background-color: transparent;">
+        <a routerLink="/" style="text-decoration: none;">
+            <ion-item detail>
+                <ion-label>Editar Información</ion-label>
+            </ion-item>
+        </a>
+        <a routerLink="/" style="text-decoration: none;">
+            <ion-item detail>
+                <ion-label>Ver Historial de Pedidos</ion-label>
+            </ion-item>
+        </a>
+        <a routerLink="/" style="text-decoration: none;">
+            <ion-item detail>
+                <ion-label>Ver Historial de Premios</ion-label>
+            </ion-item>
+        </a>
+        <a routerLink="/" style="text-decoration: none;">
+            <ion-item detail>
+                <ion-label>Ver mis Puntos</ion-label>
+            </ion-item>
+        </a>
+    </ion-list>
 </ion-content>
