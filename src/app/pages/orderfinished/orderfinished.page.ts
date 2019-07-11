@@ -3,6 +3,7 @@ import { SelectaddressPageModule } from './../selectaddress/selectaddress.module
 import { MenuController } from '@ionic/angular';
 import { OrderdetailedPageModule } from './../orderdetailed/orderdetailed.module';
 import { Component, OnInit, ViewChild, Input } from '@angular/core';
+import { Http } from '@angular/http';
 
 @Component({
   selector: 'app-orderfinished',
