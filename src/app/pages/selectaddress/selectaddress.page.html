@@ -5,6 +5,19 @@
   <div class="container-fluid confOrden">
     <ion-grid style="margin-top: 5%;">
         <h5 text-center style="font-size: 20px; color: #5C5B5B; margin-bottom: 5%;">Enviar a: </h5>
+        <ion-row style="background-color: azure; margin-bottom: 5% !important;" class="container-fluid">
+          <ion-col size="12">
+              <ion-select placeholder="Seleccione una dirección" 
+              okText="Okay" 
+              cancelText="Cancelar"
+              >
+                <ion-select-option value="1">Calle 123</ion-select-option>
+                <ion-select-option value="2">Avenida Siempreviva</ion-select-option>
+                <ion-select-option value="3">Carrera 2</ion-select-option>
+                <ion-select-option value="4">Diagonal 45</ion-select-option>
+              </ion-select>
+          </ion-col>
+        </ion-row>
       <ion-row style="background-color: azure; margin-bottom: 5%;">
         <ion-col size="12">
           <ion-row>
@@ -12,7 +25,7 @@
               <p style="font-size: 16px;">DIRECCIÓN DE ENVÍO</p>
             </ion-col>
             <ion-col size="2">
-              <ion-button fill="clear">
+              <ion-button fill="clear" (click)="editDireccion()">
                 <ion-icon name="create"></ion-icon>
               </ion-button>
             </ion-col>

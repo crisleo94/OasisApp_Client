@@ -33,6 +33,24 @@ ion-input {
     font-family: 'Roboto', sans-serif;
 }
 
+.genero {
+    background-color: white;
+    margin-bottom: 3%;
+    padding-left: 3%;
+    right: 0;
+
+    ion-select {
+        padding-left: 0 !important;
+        color: black !important;
+        font-family: 'Roboto', sans-serif;
+    }
+
+    ion-select::placeholder {
+        color: black !important;
+        font-family: 'Roboto', sans-serif;
+    }
+}
+
 .errorMessage {
     color: red; 
     font-size: 12px; 

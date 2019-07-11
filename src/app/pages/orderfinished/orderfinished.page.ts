@@ -12,14 +12,13 @@ import { Component, OnInit, ViewChild, Input } from '@angular/core';
 export class OrderfinishedPage implements OnInit {
 
   habilitado = true;
-  @ViewChild('numero') numero: OrderdetailedPageModule;
-  horaSeleccionada = '';
+  horaFinal = '';
 
   constructor(private menu: MenuController, private hora: HoraService) { }
 
   ngOnInit() {
     this.menu.enable(this.habilitado);
-    this.hora.horaSeleccionada.subscribe(hora => this.horaSeleccionada = hora);
+    this.hora.horaCompartida.subscribe(x => this.horaFinal = x);
   }
 
   confirmarPedido() {

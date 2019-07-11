@@ -20,6 +20,7 @@ import { AuthenticationService } from './services/authentication.service';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 
 import * as firebase from 'firebase';
+import { HttpClientModule } from '@angular/common/http';
 
 firebase.initializeApp(environment.firebase);
 
@@ -32,7 +33,8 @@ firebase.initializeApp(environment.firebase);
     AppRoutingModule,
     ComponentsModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [
     StatusBar,
