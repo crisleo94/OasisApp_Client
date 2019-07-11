@@ -19,6 +19,7 @@ const routes: Routes = [
   { path: 'contact-info', loadChildren: './pages/contact-info/contact-info.module#ContactInfoPageModule' },
   { path: 'cart', loadChildren: './pages/cart/cart.module#CartPageModule' },
   { path: 'store-points', loadChildren: './pages/store-points/store-points.module#StorePointsPageModule' },
+  { path: 'forgot-password', loadChildren: './pages/forgot-password/forgot-password.module#ForgotPasswordPageModule' },
 
 ];
 

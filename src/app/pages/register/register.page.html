@@ -1,44 +1,80 @@
 <ion-content>
-  <form action="" class="container-fluid">
+  <form (ngSubmit)="register( registro.value )" [formGroup]="registro" class="container-fluid">
     <div class="text-center" style="margin-bottom: 3%;">
       <ion-label text-center style="font-family: 'Roboto', sans-serif; color: white;">¡Bienvenido!, por favor regístrate</ion-label><br>
       <ion-label style="font-family: 'Roboto', sans-serif; color: white;"><small>¿Ya tienes una cuenta? <a routerLink="/login" style="font-weight: bold;">Ingresa aquí</a></small></ion-label>
     </div>
     <div class="inputsRegistro">
       <ion-input  type="text" 
-                  name="nombre" 
-                  placeholder="Nombre completo">
+                  name="nombre"
+                  placeholder="Nombre completo"
+                  formControlName="nombre">
       </ion-input>
-      <ion-input  type="text" 
-                  name="user" 
-                  placeholder="Usuario">
+      <div class="validationErrors">
+        <ng-container *ngFor="let validation of validationMessages.nombre">
+          <div class="errorMessage" *ngIf="registro.get('nombre').hasError(validation.type) 
+                                          && (registro.get('nombre').dirty || registro.get('nombre').touched)" >
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+      <ion-input  type="text"
+                  name="ususario" 
+                  placeholder="Usuario"
+                  formControlName="usuario">
       </ion-input>
+      <div class="validationErrors">
+        <ng-container *ngFor="let validation of validationMessages.usuario">
+          <div class="errorMessage" *ngIf="registro.get('usuario').hasError(validation.type) 
+                                          && (registro.get('usuario').dirty || registro.get('usuario').touched)" >
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
       <ion-input  type="email" 
-                  name="mail" 
+                  name="correoelectronico" 
                   placeholder="Correo electrónico"
-                  email>
+                  formControlName="email">
       </ion-input>
+      <div class="validationErrors">
+        <ng-container *ngFor="let validation of validationMessages.email">
+          <div class="errorMessage" *ngIf="registro.get('email').hasError(validation.type) 
+                                          && (registro.get('email').dirty || registro.get('email').touched)" >
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
       <ion-input  type="password" 
-                  name="pass" 
+                  name="password" 
                   placeholder="Contraseña"
-                  password
-                  minLenght="6">
+                  formControlName="password">
       </ion-input>
+      <div class="validationErrors">
+        <ng-container *ngFor="let validation of validationMessages.password">
+          <div class="errorMessage" *ngIf="registro.get('password').hasError(validation.type) 
+                                          && (registro.get('password').dirty || registro.get('password').touched)" >
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
       <ion-input  type="password" 
-                  name="pass" 
+                  name="password2" 
                   placeholder="Confirma tu Contraseña"
-                  password
-                  minLenght="6">
+                  formControlName="password2">
       </ion-input>
+      <div class="validationErrors">
+        <ng-container *ngFor="let validation of validationMessages.password2">
+          <div class="errorMessage" *ngIf="registro.get('password2').hasError(validation.type) 
+                                          && (registro.get('password2').dirty || registro.get('password2').touched) 
+                                          && registro.get('password') != registro.get('password2')" >
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
     </div>
-    <div (click)="register()" class="d-flex justify-content-center" style="background-color: #00A758; color: white;
-                                                      border: black solid 0.5px; height: 44px;">
-      <ion-buttons>
-        <ion-button style=" text-transform: capitalize !important; font-family: 'Roboto', sans-serif;">
-          Siguiente
-        </ion-button>
-      </ion-buttons>
-    </div>
+    <ion-button class="btnRegister" type="submit">
+      Siguiente
+    </ion-button>
   </form>
   <div class="container-fluid text-center" style="color: white !important;">
     <ion-label><small>By clicking Create An Account, yo agree <br>to our <a href="" style="font-weight: bold;">Term of Services</a></small></ion-label>

@@ -9,16 +9,22 @@
     <div class="container-fluid">
       <ion-input  type="text" 
                   placeholder="correo@correo.com"
-                  [(ngModel)]="user.mail"
+                  [(ngModel)]="user.email"
                   name="mail"
+                  required
+                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
                   #mail>
       </ion-input>
+      <!-- <ion-label *ngIf="user.email != this.mail|| user.password != pass" style="color: red; padding-left: 20px;"><small>*El correo no está registrado o no es correcto</small></ion-label> -->
       <ion-input  type="password" 
                   placeholder="Contraseña"
-                  [(ngModel)]="user.pass"
+                  [(ngModel)]="user.password"
                   name="pass"
+                  required
+                  minlength="2"
                   #pass>
       </ion-input>
+      <!-- <ion-label *ngIf="user.email != user.email || user.password != user.password" style="color: red; padding-left: 20px"><small>*La contraseña no es correcta</small></ion-label> -->
     </div>
     <ion-button class="btnRegistro" color="verdeRegistro" (click)="login(loginP); loginP.reset">
       Ingresar
@@ -29,7 +35,7 @@
       <ion-label style="color: azure; margin-right: 30px;">
       Recuérdame
       </ion-label>
-    <a style="text-decoration: none;">
+    <a style="text-decoration: none;" routerLink="/forgot-password">
       <ion-label style="color: azure;"> Recuperar contraseña </ion-label>
     </a>
     </div>

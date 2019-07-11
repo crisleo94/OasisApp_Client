@@ -20,3 +20,17 @@ ion-input {
     --placeholder-font-weight initial
     --placeholder-opacity 0.5
 }
+
+.btnRegister {
+    --background: #00A758; 
+    color: white;
+    height: 44px;
+    width: 98% !important;
+    text-transform: capitalize !important; 
+    font-family: 'Roboto', sans-serif;
+}
+
+#mapa {
+    height: 150px;
+    width: auto;
+}

@@ -33,7 +33,7 @@ export class MenuComponent implements OnInit {
     this.router.navigateByUrl('/profile');
   }
   cart() {
-    this.router.navigateByUrl('/cart');
+    this.router.navigateByUrl('/orderdetailed');
   }
   points() {
     this.router.navigate(['/store-points']);

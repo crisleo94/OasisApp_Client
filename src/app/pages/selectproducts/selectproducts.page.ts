@@ -47,7 +47,7 @@ export class SelectproductsPage implements OnInit {
     if (this.numero > 0) {
       this.numero = this.numero - 1;
     } else {
-      console.log('no se pueden negativos')
+      console.log('no se pueden negativos');
     }
     console.log('Un producto menos');
   }

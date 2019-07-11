@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { PickerController, AlertController, MenuController } from '@ionic/angular';
 import { PickerOptions } from '@ionic/core';
 import { JsonPipe } from '@angular/common';
+import { text } from '@angular/core/src/render3';
+import { Options } from 'selenium-webdriver/chrome';
 
 @Component({
   selector: 'app-selectaddress',
@@ -13,9 +15,9 @@ import { JsonPipe } from '@angular/common';
 })
 export class SelectaddressPage implements OnInit {
 
+  seleccion;
   habilitado = true;
   horaSeleccionada = '';
-  indice = 0;
   horaServicio = '';
 
   constructor(private router: Router,
@@ -40,11 +42,9 @@ export class SelectaddressPage implements OnInit {
         },
         {
           text: 'Confirmar',
-          handler: (value) => {
-            this.horaSeleccionada = value;
-            console.log('confirmacion', this.horaSeleccionada);
-            this.confirmacion(value);
-            console.log(this.indice);
+          handler: ( event ) => {
+            console.log('confirmacion', event);
+            this.confirmacion( event );
           }
         }
       ],
@@ -71,18 +71,17 @@ export class SelectaddressPage implements OnInit {
       const col = await picker.getColumn('Horas');
       console.log('Esta es la columna ', col);
       this.horaSeleccionada = await col.options[col.selectedIndex].text;
-      this.indice = +col.options[col.selectedIndex].value;
       console.log(this.horaSeleccionada);
       // this.confirmacion();
     });
   }
 
-  async confirmacion(value) {
-    const hora2 = JSON.stringify(value);
+  async confirmacion( event ) {
     const alert = await this.alertCtrl.create({
       header: 'Confirmación Pedido',
       subHeader: 'Si desea cambiar la hora, seleccione cancelar',
-        message: 'Su pedido será entregado entre las ' + hora2[this.indice],
+// tslint:disable-next-line: no-string-literal
+        message: 'Su pedido será entregado entre las ' +  event.Horas.text,
         buttons: [
           {
             text: 'OK',
@@ -95,6 +94,10 @@ export class SelectaddressPage implements OnInit {
     });
 
     await alert.present();
+  }
+
+  confirmarCierrre() {
+    console.log('cierre confirmado');
   }
 
   cambioHora() {
