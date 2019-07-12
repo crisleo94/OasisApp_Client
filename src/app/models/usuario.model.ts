@@ -6,10 +6,6 @@ export class UsuarioModel {
     email?: string;
     password?: string;
     password2?: string;
-    direccion1?: string;
-    direccion2?: string;
-    codigoPostal?: string;
-    poblacion?: string;
-    referencia?: string;
+    IDubicacion?: number;
     IDPedidos?: number;
 }

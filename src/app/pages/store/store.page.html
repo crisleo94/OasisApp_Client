@@ -20,23 +20,32 @@
         Selecciona el producto que <br>
         quieres recibir a domicilio
     </h2>
-    <ion-grid fixed>
+    <!-- <div class="row container-fluid">
+        <div *ngFor="let p of productos"  class="col-6 card">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{ p.descripcion }}</h5>
+                <p class="card-text"></p>
+            </div>
+        </div>
+    </div> -->
+   <ion-grid fixed>
         <ion-row>
-            <ion-col size="12">
-                <ion-img routerLink="/selectproducts" src="assets/img/Garrafon.png"></ion-img>
+            <ion-col size="12" *ngFor="let p of productos" >
+                <ion-img class="pGrande" *ngIf="p.descripcion === 'Garrafon'"  routerLink="/selectproducts" src="{{ p.prodImg }}"></ion-img>
             </ion-col>
         </ion-row>
         <ion-row>
-            <ion-col size="6">
+            <ion-col size="6" *ngFor="let producto of productos">
                 <ion-card color="light">
-                    <ion-img routerLink="/selectproducts"  src="assets/img/Galon3.7L.png"></ion-img>
+                    <ion-img src="{{ producto.prodImg }}"></ion-img>
                     <ion-card-header>
-                        <ion-card-title>Card Title</ion-card-title>
-                        <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+                        <ion-card-title>{{ producto.descripcion }}</ion-card-title>
+                        <ion-card-subtitle>$ {{ producto.valorunitario }} USD</ion-card-subtitle>
                     </ion-card-header>
                 </ion-card>
             </ion-col>
-            <ion-col size="6">
+             <!-- <ion-col size="6">
                 <ion-card color="light">
                     <ion-img routerLink="/selectproducts"  src="assets/img/Botella500ML.png"></ion-img>
                     <ion-card-header>
@@ -44,9 +53,9 @@
                         <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
                     </ion-card-header>
                 </ion-card>
-            </ion-col>
+            </ion-col>  -->
         </ion-row>
-        <ion-row>
+        <!-- <ion-row>
             <ion-col size="6">
                 <ion-card color="light">
                     <ion-img routerLink="/selectproducts" src="assets/img/Galon3.7L.png"></ion-img>
@@ -65,9 +74,9 @@
                     </ion-card-header>
                 </ion-card>
             </ion-col>
-        </ion-row>
+        </ion-row>  -->
     </ion-grid>
-    <ion-grid fixed>
+    <!-- <ion-grid fixed>
         <ion-row>
             <ion-col size="12">
                 <ion-img routerLink="/selectproducts" src="assets/img/PipaAgua.png"></ion-img>
@@ -80,5 +89,5 @@
                 <ion-img routerLink="/selectproducts" src="assets/img/PipaAguacopy.png"></ion-img>
             </ion-col>
         </ion-row>
-    </ion-grid>
+    </ion-grid> -->
 </ion-content>

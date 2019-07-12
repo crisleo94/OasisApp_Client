@@ -1,3 +1,4 @@
+import { ProductosService } from './services/productos.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ComponentsModule } from './components/components.module';
 import { NgModule } from '@angular/core';
@@ -42,6 +43,7 @@ firebase.initializeApp(environment.firebase);
     Geolocation,
     GoogleMaps,
     AuthenticationService,
+    ProductosService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

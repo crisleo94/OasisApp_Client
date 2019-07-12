@@ -23,3 +23,18 @@ ion-fab-button {
     // --ripple-color: #1e1e1e;
     // --transition: background-color 15ms linear;
 }
+
+ion-img {
+    width: auto !important;
+    height: 100px !important;
+}
+
+ion-card-title {
+    --color: #000;
+    font-size: 14px;
+}
+
+ion-card-subtitle {
+    --color: gray;
+    font-size: 12px;
+}
