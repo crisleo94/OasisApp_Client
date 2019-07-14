@@ -1,3 +1,4 @@
+import { ProductosService } from './services/productos.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ComponentsModule } from './components/components.module';
 import { NgModule } from '@angular/core';
@@ -20,6 +21,7 @@ import { AuthenticationService } from './services/authentication.service';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 
 import * as firebase from 'firebase';
+import { HttpClientModule } from '@angular/common/http';
 
 firebase.initializeApp(environment.firebase);
 
@@ -32,7 +34,8 @@ firebase.initializeApp(environment.firebase);
     AppRoutingModule,
     ComponentsModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [
     StatusBar,
@@ -40,6 +43,7 @@ firebase.initializeApp(environment.firebase);
     Geolocation,
     GoogleMaps,
     AuthenticationService,
+    ProductosService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

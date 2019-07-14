@@ -1,3 +1,5 @@
+import { ProductoModel } from './../../models/producto.model';
+import { ProductosService } from './../../services/productos.service';
 import { MenuController } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -10,12 +12,23 @@ import { Router } from '@angular/router';
 export class StorePage implements OnInit {
 
   habilitado = true;
+  productos = [];
 
-  constructor(private menu: MenuController, private router: Router) { }
+  constructor(private menu: MenuController,
+              private router: Router,
+              private producto: ProductosService) { }
 
 
   ngOnInit() {
     this.menu.enable(this.habilitado);
+    this.listarProductos();
+  }
+
+  listarProductos() {
+    this.producto.getProductos().subscribe((res: any[]) => {
+      console.log(res);
+      this.productos = res;
+    });
   }
 
   openFirst() {

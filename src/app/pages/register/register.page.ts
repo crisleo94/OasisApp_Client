@@ -1,3 +1,5 @@
+import { BDService } from './../../services/bd.service';
+import { AuthenticationService } from './../../services/authentication.service';
 import { NgForm, FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { UsuarioModel } from './../../models/usuario.model';
 import { Router } from '@angular/router';
@@ -25,29 +27,34 @@ export class RegisterPage implements OnInit {
     ],
     password: [
       {type: 'required', message: '*La contraseña es obligatoria'},
-      {type: 'minLength', message: '*La contraseña debe tener mínimo 6 caracteres'}
+      {type: 'minlength', message: '*La contraseña debe tener mínimo 6 caracteres'}
     ],
     nombre: [
       {type: 'required', message: '*El nombre es obligatorio'},
-      {type: 'minLength', message: '*Este campo debe tener mínimo 5 caracteres'}
+      {type: 'minlength', message: '*Este campo debe tener mínimo 5 caracteres'}
     ],
     password2: [
-      {type: 'required', message: '*Las contraseñas deben coincidir'},
-      {type: 'minLength', message: '*La contraseña debe tener mínimo 6 caracteres'}
+      {type: 'required', message: '*Las contraseñas deben coincidir'}
     ],
     usuario: [
       {type: 'required', message: '*El nombre de usuario es requerido'},
-      {type: 'minLength', message: '*El nombre de usuario debe tener mínimo 6 caracteres'}
+      {type: 'minlength', message: '*El nombre de usuario debe tener mínimo 6 caracteres'}
+    ],
+    genero: [
+      {type: 'required', message: '*Debe seleccionar un género'}
     ]
   };
 
   constructor(private menu: MenuController,
               private router: Router,
               private alert: AlertController,
-              private fb: FormBuilder) { }
+              private fb: FormBuilder,
+              private auth: AuthenticationService,
+              private db: BDService) { }
 
   ngOnInit() {
     this.menu.enable(this.habilitado);
+    // validaciones para el formulario
     this.registro = this.fb.group({
       email: new FormControl('', Validators.compose([
         Validators.required,
@@ -66,27 +73,65 @@ export class RegisterPage implements OnInit {
         Validators.minLength(5)
       ])),
       password2: new FormControl('', Validators.compose([
-        Validators.required,
-        Validators.minLength(6)
+        Validators.required
+      ])),
+      genero: new FormControl('', Validators.compose([
+        Validators.required
       ]))
     });
   }
 
-  register(form) {
-    if (form.valid) {
+  register(form: FormGroup) {
+    // this.router.navigateByUrl('/register2');
+    if (this.registro.valid) {
+      const mail = this.registro.controls.email.value;
+      this.db.postUserData(this.user);
+      console.log(mail);
+      console.log(this.registro);
+      // const pass = form.controls.password.value;
+      this.auth.registerUser(form)
+      .then((res) => {
+        this.user.ID = res.user.uid;
+        this.user.email = mail;
+        console.log(res);
+        this.correctRegister(mail);
+      }).catch((err) => {
+        console.log(err);
+        this.errorRegister();
+      });
       console.log(form);
-    } else { console.log(form); }
+      // return this.router.navigateByUrl('/register2');
+    } else { console.error(form); }
   }
 
-  /* async errorRegister() {
+  async errorRegister() {
     const alert = await this.alert.create({
       header: 'Error',
-      message: 'Debe llenar todos los campos para continuar',
+      message: 'Ha ocurrido un error al momento de registrar su cuenta, verifique los datos',
       buttons: ['OK']
     });
 
     await alert.present();
-  } */
+  }
+
+  async correctRegister(mail) {
+    const alert = await this.alert.create({
+      cssClass: 'confAlert',
+      header: 'Cuenta Creada',
+      subHeader: 'Ahora registre una dirección',
+      message: 'Se cuenta se ha creado con exito, verifique su correo ' + mail,
+      buttons: ['OK']
+    });
+
+    await alert.present();
+  }
+
+  localStorage(user: UsuarioModel) {
+    localStorage.setItem('UserID', user.ID);
+    localStorage.setItem('correo', user.email);
+    localStorage.setItem('correo', user.usuario);
+    localStorage.setItem('correo', user.password);
+  }
 
 
 }

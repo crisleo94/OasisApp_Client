@@ -19,6 +19,7 @@ export class SelectaddressPage implements OnInit {
   habilitado = true;
   horaSeleccionada = '';
   horaServicio = '';
+  direccion = '';
 
   constructor(private router: Router,
               private picker: PickerController,
@@ -86,6 +87,7 @@ export class SelectaddressPage implements OnInit {
           {
             text: 'OK',
             handler: () => {
+              this.cambioHora();
               console.log('ok texto', this.horaSeleccionada);
               this.router.navigateByUrl('/orderfinished');
             }
@@ -152,6 +154,61 @@ export class SelectaddressPage implements OnInit {
           text: 'Guardar en el perfil',
           handler: () => {
             console.log('guardó la dirección');
+          }
+        }
+      ]
+    });
+
+    await alert.present();
+  }
+
+  async editDireccion() {
+    const alert = await this.alertCtrl.create({
+      header: 'Editar dirección',
+      inputs: [
+        {
+          name: 'direccion',
+          type: 'text',
+          placeholder: 'Dirección 1',
+          value: 'Madelaine Arno'
+        },
+        {
+          name: 'direccion2',
+          type: 'text',
+          placeholder: 'Dirección 2',
+          value: '6259 Monroe Street'
+        },
+        {
+          name: 'codigoPostal',
+          type: 'number',
+          placeholder: 'C.P',
+          value: '93306'
+        },
+        // input date with min & max
+        {
+          name: 'poblacion',
+          type: 'text',
+          placeholder: 'Población',
+          value: 'Bakersfield, CA'
+        },
+        // input date without min nor max
+        {
+          name: 'referencia',
+          type: 'text',
+          placeholder: 'Referencia(Color casa, frente a negocio, etc)'
+        }
+      ],
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          handler: () => {
+            console.log('Confirm Cancel');
+          }
+        }, {
+          text: 'Ok',
+          handler: () => {
+            console.log('Confirm Ok');
           }
         }
       ]

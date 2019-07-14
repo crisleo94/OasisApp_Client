@@ -10,7 +10,7 @@ import {
 } from '@ionic-native/google-maps/ngx';
 import { Geolocation, Geoposition } from '@ionic-native/geolocation/ngx';
 import { Router } from '@angular/router';
-import { NgForm } from '@angular/forms';
+import { NgForm, FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { UsuarioModel } from './../../models/usuario.model';
 import { MenuController, AlertController } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
@@ -27,30 +27,57 @@ export class Register2Page implements OnInit {
   longitud;
   latitud;
   map: GoogleMap;
+  registroDireccion: FormGroup;
+  errorMessage = '';
+  successMessage = '';
+
+  validationMessages = {
+    direccion: [
+      {type: 'required', message: '*La dirección es obligatoria'}
+    ],
+    direccion2: [
+      {type: 'required', message: '*La dirección es obligatoria'}
+    ],
+    codigoPostal: [
+      {type: 'required', message: '*El Código Postal es obligatorio'},
+      {type: 'minlength', message: '*Este campo debe tener mínimo 4 caracteres'}
+    ],
+    poblacion: [
+      {type: 'required', message: '*Este campo es obligatorio'}
+    ],
+    referencia: [
+      {type: 'required', message: '*Este campo es obligatorio'}
+    ],
+    telefono: [
+      {type: 'required', message: '*Este campo es obligatorio'}
+    ]
+  };
   // map2: GoogleMap;
 
   constructor(private menu: MenuController,
               private router: Router,
               private alert: AlertController,
-              private locate: Geolocation) { }
+              private locate: Geolocation,
+              private fb: FormBuilder) { }
 
   ngOnInit() {
     this.menu.enable(this.habilitado);
-    this.cargarMapa();
+    // this.cargarMapa();
+    this.validaciones();
   }
 
   register2(form: NgForm) {
     if (form.valid) {
-      this.router.navigateByUrl('/home-store');
-    } else {
-      this.errorRegister2();
+      this.correctRegister2();
+      this.router.navigateByUrl('/login');
     }
   }
 
-  async errorRegister2() {
+  async correctRegister2() {
     const alert = await this.alert.create({
-      header: 'Error',
-      message: 'Debe llenar todos los campos para poder continuar.',
+      header: 'Confirmación',
+      subHeader: 'Dirección registrada, verificar en el perfil',
+      message: 'Sus datos han sido correctamente registrados, por favor inicie sesión',
       buttons: ['OK']
     });
 
@@ -65,6 +92,30 @@ export class Register2Page implements OnInit {
     }).catch((error) => {
       // En caso se registre un error
       console.error('Error obteniendo la ubicación', error);
+    });
+  }
+
+  validaciones() {
+    this.registroDireccion = this.fb.group({
+      direccion: new FormControl('', Validators.compose([
+        Validators.required
+      ])),
+      direccion2: new FormControl('', Validators.compose([
+        Validators.required
+      ])),
+      codigoPostal: new FormControl('', Validators.compose([
+        Validators.required,
+        Validators.minLength(4)
+      ])),
+      poblacion: new FormControl('', Validators.compose([
+        Validators.required
+      ])),
+      referencia: new FormControl('', Validators.compose([
+        Validators.required
+      ])),
+      telefono: new FormControl('', Validators.compose([
+        Validators.required
+      ]))
     });
   }
 

@@ -6,8 +6,8 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class HoraService {
 
-  fuenteHora = new BehaviorSubject('');
-  horaSeleccionada = this.fuenteHora.asObservable();
+  fuenteHora = new BehaviorSubject('Hora por defecto');
+  horaCompartida = this.fuenteHora.asObservable();
 
   constructor() {
    }

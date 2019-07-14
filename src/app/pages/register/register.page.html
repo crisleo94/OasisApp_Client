@@ -18,8 +18,16 @@
           </div>
         </ng-container>
       </div>
+      <div class="genero">
+        <ion-select multiple="false" 
+                    placeholder="Seleccione su género"
+                    formControlName="genero">
+          <ion-select-option style="color: gray !important;" value="femenino">Femenino</ion-select-option>
+          <ion-select-option style="color: gray !important;" value="masculino">Masculino</ion-select-option>
+        </ion-select>
+      </div>
       <ion-input  type="text"
-                  name="ususario" 
+                  name="usuario" 
                   placeholder="Usuario"
                   formControlName="usuario">
       </ion-input>
@@ -47,7 +55,8 @@
       <ion-input  type="password" 
                   name="password" 
                   placeholder="Contraseña"
-                  formControlName="password">
+                  formControlName="password"
+                  #pass>
       </ion-input>
       <div class="validationErrors">
         <ng-container *ngFor="let validation of validationMessages.password">
@@ -60,19 +69,14 @@
       <ion-input  type="password" 
                   name="password2" 
                   placeholder="Confirma tu Contraseña"
-                  formControlName="password2">
+                  formControlName="password2"
+                  #pass2>
       </ion-input>
-      <div class="validationErrors">
-        <ng-container *ngFor="let validation of validationMessages.password2">
-          <div class="errorMessage" *ngIf="registro.get('password2').hasError(validation.type) 
-                                          && (registro.get('password2').dirty || registro.get('password2').touched) 
-                                          && registro.get('password') != registro.get('password2')" >
-            {{ validation.message }}
-          </div>
-        </ng-container>
+      <div class="errorMessage" *ngIf="pass.value != pass2.value" >
+        *Las contraseñas no son iguales
       </div>
     </div>
-    <ion-button class="btnRegister" type="submit">
+    <ion-button class="btnRegister" type="submit" [disabled]="!registro.valid">
       Siguiente
     </ion-button>
   </form>

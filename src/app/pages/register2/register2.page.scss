@@ -34,3 +34,35 @@ ion-input {
     height: 150px;
     width: auto;
 }
+
+.errorMessage {
+    color: red; 
+    font-size: 12px; 
+    padding-left: 10px;
+    font-family: 'Roboto', sans-serif;
+    opacity: 1;
+    animation-name: fadeInOpacity;
+    animation-name: fadeOutOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-timing-function: ease-out;
+	animation-duration: 0.5s;
+}
+
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes fadeOutOpacity {
+	100% {
+		opacity: 1;
+	}
+	0% {
+		opacity: 0;
+	}
+}
